@@ -31,6 +31,23 @@ maybe make the commented code more concise by replacing the 2nd forEach with a .
 
 function getBooksPossessedByAccount(account, books, authors) {
 
+    const checkedOutBooks = books.filter((book) => {
+      //filtering the books by account and not returned
+     let firstEntry = book.borrows[0];
+     return firstEntry.id === account.id && firstEntry.returned === false
+   });
+   //appending the checked out book with author that matches author id
+   const checkedOutWithAuthor = checkedOutBooks.map((book) => {
+     const author = authors.find((author) => author.id === book.authorId )
+     return {
+       ...book, 
+       author: author
+     };
+   })
+     return checkedOutWithAuthor;
+    
+   
+
   /* compared books.borrows.id to 
   authors.id && books.borrows.returned: false
   */
@@ -44,10 +61,11 @@ array1.forEach(element => console.log(element));
 // expected output: "b"
 // expected output: "c"
 */
+/*
   let bookCheckedOut = books.filter((book) => book.borrows.forEach(element => element.returned === false));
   console.log(bookCheckedOut);
   return bookCheckedOut;
-  /*
+  
   for (let author of authors){
     for(let book of books){
       if(author.id === book.authorId)

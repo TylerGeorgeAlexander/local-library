@@ -44,7 +44,7 @@ describe("Accounts Page", () => {
       expect(actual).to.equal(2);
     });
   });
-/*
+
   describe("getBooksPossessedByAccount()", () => {
     it("should return all of the books taken out by an account with the author embedded", () => {
       const account = accounts[4];
@@ -57,5 +57,5 @@ describe("Accounts Page", () => {
       expect(book.title).to.equal("esse ea veniam non occaecat");
     });
   });
-  */
+  
 });

@@ -67,7 +67,8 @@ describe("Home Page", () => {
       expect(actual.length).to.equal(5);
     });
   });
-/*
+  
+
   describe("getMostPopularBooks()", () => {
     it("should return an ordered list of most popular books", () => {
       const actual = getMostPopularBooks(books);
@@ -101,5 +102,5 @@ describe("Home Page", () => {
       expect(actual.length).to.equal(5);
     });
   });
-  */
+  
 });

@@ -44,7 +44,7 @@ describe("Books Page", () => {
       expect(returned.length).to.equal(3);
     });
   });
-/*
+
   describe("getBorrowersForBook()", () => {
     it("should return an array for a book of all borrowers with their information and return status", () => {
       const book = booksFixture[3];
@@ -65,5 +65,5 @@ describe("Books Page", () => {
       expect(actual.length).to.equal(10);
     });
   });
-  */
+  
 });

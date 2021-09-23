@@ -21,18 +21,33 @@ function partitionBooksByBorrowedStatus(books) {
 }
 
 function getBorrowersForBook(book, accounts) {
+    let finalResult = [];
+    let borrowedBooks = book.borrows;
+    borrowedBooks.forEach(borrowedBooks => {
+      let account = accounts.find(user => user.id === borrowedBooks.id);
+      let user = account;
+      user['returned'] =  borrowedBooks.returned;
+      finalResult.push(user);
+  })
+  return finalResult.slice(0,10);
+};
+/*
+It should return an array of ten or fewer account objects that
+ represents the accounts given by the IDs in the provided 
+ book's `borrows` array. However, each account object should 
+ include the `returned` entry from the corresponding transaction 
+ object in the `borrows` array.
+*/
 
-let bookArr = [];
-for(let i = 0; i < 10; i++){
-  for(let account of accounts){
-    if(book.borrows[0].id === account.id){
-      bookArr.push(account[i]);
-    }
-  }
-}
-console.log(bookArr);
+/*
+// accounts given by the IDs
+account.id
+//compared to 
+book.borrows[].id
+// include the `returned` entry 
+book.borrows[].returned
+*/
 
-}
 
 module.exports = {
   findAuthorById,
